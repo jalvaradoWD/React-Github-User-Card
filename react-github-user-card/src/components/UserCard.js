@@ -14,20 +14,28 @@ class UserCard extends Component {
     };
   }
 
-  // componentDidMount = async () => {
-  //   const res = await axios.get(this.props.user.followers_url);
-  //   this.setState({
-  //     userFollowers: [...res.data],
-  //   });
-  // };
+  componentDidMount = async () => {
+    const res = await axios.get(this.props.user.followers_url);
+    this.setState({
+      userFollowers: [...res.data],
+    });
+  };
 
   render() {
     const { login, avatar_url } = this.props.user;
 
     return (
       <UserCardStyles>
-        <h3>{login}</h3>
-        <img className="userAvatar" src={avatar_url} alt={`${login} avatar`} />
+        <a href={`https://github.com/${login}`}>
+          <h3>{login}</h3>
+        </a>
+        <a href={`https://github.com/${login}`}>
+          <img
+            className="userAvatar"
+            src={avatar_url}
+            alt={`${login} avatar`}
+          />
+        </a>
         <UserCardFollowers followers={this.state.userFollowers} />
       </UserCardStyles>
     );

@@ -7,6 +7,7 @@ export default styled.div`
   flex-wrap: wrap;
   column-gap: ${imagesPadding};
   row-gap: ${imagesPadding};
+  padding: 1rem;
 
   img {
     width: 30px;

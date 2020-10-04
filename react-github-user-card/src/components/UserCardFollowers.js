@@ -10,10 +10,12 @@ class UserCardFollowers extends Component {
   render() {
     return (
       <FollowersStyles>
-        {this.props.followers.map(({ avatar_url }) => {
+        {this.props.followers.map(({ avatar_url, login }) => {
           return (
             <>
-              <img src={`${avatar_url}`} alt="follower avatar" />
+              <a href={`http://github.com/${login}`}>
+                <img src={`${avatar_url}`} alt="follower avatar" />
+              </a>
             </>
           );
         })}
